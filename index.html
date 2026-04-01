@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assessoria e decoração para casamentos, debutantes e eventos corporativos em São Paulo. Marah Souza Eventos cria celebrações elegantes e memoráveis.">
+    <meta name="theme-color" content="#d4af37">
+    <title>Marah Souza Eventos | Assessoria e Decoração</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Flatpickr for Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#f9f6f0', // Tom bege muito claro
+                            DEFAULT: '#d4af37', // Dourado
+                            dark: '#2c2c2c', // Quase preto
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'], // Para títulos elegantes
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Estilo para a galeria masonry simples */
+        .masonry {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl md:text-3xl font-semibold text-brand-dark">
+                        Marah Souza <span class="text-brand text-sm md:text-base tracking-widest block uppercase font-sans font-normal mt-1">Eventos</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#sobre" class="text-gray-600 hover:text-brand transition-colors">Sobre</a>
+                    <a href="#portfolio" class="text-gray-600 hover:text-brand transition-colors">Portfólio</a>
+                    <a href="#servicos" class="text-gray-600 hover:text-brand transition-colors">Serviços</a>
+                    <a href="#contato" class="bg-brand text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors">Solicitar Orçamento</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="Abrir menu de navegacao" title="Abrir menu" class="text-gray-600 hover:text-brand focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#sobre" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50 rounded-md">Sobre</a>
+                <a href="#portfolio" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50 rounded-md">Portfólio</a>
+                <a href="#servicos" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand hover:bg-gray-50 rounded-md">Serviços</a>
+                <a href="#contato" class="block px-3 py-2 text-base font-medium text-brand font-bold hover:bg-gray-50 rounded-md">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
+                    Transformando Sonhos em <span class="text-brand italic">Realidade</span>
+                </h1>
+                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
+                    Assessoria completa e decoração exclusiva para casamentos, debutantes e eventos corporativos. Cuidamos de cada detalhe para que seu dia seja inesquecível.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#contato" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand hover:bg-yellow-600 md:py-4 md:text-lg transition-all shadow-lg hover:shadow-xl">
+                        Agendar Conversa
+                    </a>
+                    <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-3 border border-brand text-base font-medium rounded-full text-brand bg-transparent hover:bg-brand hover:text-white md:py-4 md:text-lg transition-all">
+                        Ver Portfólio
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elementos decorativos de fundo -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-brand opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-yellow-200 opacity-20 blur-3xl"></div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-10 lg:mb-0 relative">
+                    <!-- Usando o logotipo como imagem representativa na seção sobre -->
+                    <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl relative bg-black flex items-center justify-center p-8">
+                        <img src="assets/media/IMG-20260326-WA0042.jpg" alt="Marah Souza Eventos Logo" class="object-contain w-full h-full rounded-xl">
+                    </div>
+                    <!-- Decorative dots -->
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-[radial-gradient(#d4af37_2px,transparent_2px)] [background-size:10px_10px] opacity-50"></div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl mb-4 font-serif">
+                        Sua história merece o cenário perfeito
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Olá! Sou Marah Souza. Com anos de experiência no mercado de eventos, minha missão é traduzir a essência de cada cliente em celebrações únicas e memoráveis.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Acreditamos que o sucesso de um evento mora nos detalhes. Desde a escolha da paleta de cores até o cronograma impecável no dia da festa, nossa equipe atua com paixão, elegância e profissionalismo.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-brand pl-4">
+                            <h4 class="text-2xl font-bold text-gray-900">+500</h4>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Eventos Realizados</p>
+                        </div>
+                        <div class="border-l-4 border-brand pl-4">
+                            <h4 class="text-2xl font-bold text-gray-900">100%</h4>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Dedicação</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-base text-brand font-semibold tracking-wide uppercase">Nossa Expertise</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl font-serif">
+                    Serviços que oferecemos
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Soluções completas para que você aproveite sua festa como o convidado de honra.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Serviço 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center mb-6 text-brand">
+                        <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 font-serif">Assessoria Completa</h3>
+                    <p class="text-gray-600">
+                        Acompanhamento desde o primeiro dia. Seleção de fornecedores, gestão de orçamento, cronograma e coordenação total no dia do evento.
+                    </p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center mb-6 text-brand">
+                        <i data-lucide="palette" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 font-serif">Decoração Exclusiva</h3>
+                    <p class="text-gray-600">
+                        Criação de projetos cenográficos personalizados. Arranjos florais, mobiliário, iluminação e identidade visual completa para ambientes mágicos.
+                    </p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center mb-6 text-brand">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 font-serif">Eventos Corporativos</h3>
+                    <p class="text-gray-600">
+                        Planejamento de confraternizações, lançamentos de produtos e convenções empresariais com seriedade, inovação e impacto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-base text-brand font-semibold tracking-wide uppercase">Inspire-se</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl font-serif">
+                    Nosso Portfólio
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Um vislumbre dos momentos inesquecíveis que ajudamos a construir.
+                </p>
+            </div>
+
+            <!-- Filtros (simulados) -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="px-6 py-2 rounded-full bg-brand text-white font-medium hover:bg-yellow-600 transition-colors">Todos</button>
+                <button class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors">Casamentos</button>
+                <button class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors">Corporativo</button>
+                <button class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors">Debutantes</button>
+            </div>
+
+            <!-- Masonry Gallery -->
+            <div class="masonry">
+                <!-- Imagem 1: Casamento Classico (Bolo branco 4 andares) -->
+                <div class="masonry-item relative group overflow-hidden rounded-2xl shadow-md">
+                    <img src="assets/media/IMG-20250111-WA0014.jpg" alt="Decoração Casamento Clássico com Flores Brancas" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold font-serif mb-1">Casamento Clássico</h3>
+                            <p class="text-sm font-light">Elegância em tons de branco e dourado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 2: 15 Anos Rosa (Bolo Listrado) -->
+                <div class="masonry-item relative group overflow-hidden rounded-2xl shadow-md">
+                    <img src="assets/media/IMG-20260326-WA0004.jpg" alt="Decoração 15 anos rosa com iluminação" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold font-serif mb-1">15 Anos Inesquecível</h3>
+                            <p class="text-sm font-light">Arranjos florais imponentes e iluminação cênica</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 3: Mesa de Doces Corporativo/Recepção (Coffee Break) -->
+                <div class="masonry-item relative group overflow-hidden rounded-2xl shadow-md">
+                    <img src="assets/media/IMG-20260326-WA0044.jpg" alt="Mesa de Coffee Break elegante" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold font-serif mb-1">Coffee Break Corporativo</h3>
+                            <p class="text-sm font-light">Detalhes que acolhem seus convidados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 4: Decoração Casamento Vermelho -->
+                <div class="masonry-item relative group overflow-hidden rounded-2xl shadow-md">
+                    <img src="assets/media/IMG-20260326-WA0003.jpg" alt="Decoração Romântica com Rosas Vermelhas" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold font-serif mb-1">Romance em Vermelho</h3>
+                            <p class="text-sm font-light">Mesa de doces luxuosa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 5: Tema Máscaras/Baile -->
+                <div class="masonry-item relative group overflow-hidden rounded-2xl shadow-md">
+                    <img src="assets/media/IMG-20260326-WA0011.jpg" alt="Bolo temático baile de máscaras" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold font-serif mb-1">Baile de Máscaras</h3>
+                            <p class="text-sm font-light">Sofisticação e mistério</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem 6: Debutante Vestido Dourado -->
+                <div class="masonry-item relative group overflow-hidden rounded-2xl shadow-md">
+                    <img src="assets/media/IMG-20260326-WA0025.jpg" alt="Debutante em vestido dourado luxuoso" class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div class="text-white">
+                            <h3 class="text-xl font-bold font-serif mb-1">Sonho de Princesa</h3>
+                            <p class="text-sm font-light">Acessoria completa para o dia perfeito</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contato" class="inline-flex items-center gap-2 text-brand font-semibold hover:text-yellow-700 transition-colors">
+                    Fazer um orçamento para o meu evento <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato/Agendamento Section -->
+    <section id="contato" class="py-24 bg-gray-50 relative overflow-hidden">
+        <!-- SVG Decorativo Fundo -->
+        <svg class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 text-gray-200 opacity-50" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true"><defs><pattern id="85737c0e-0916-41d7-917f-596dc7edfa27" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" fill="currentColor"></rect></pattern></defs><rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"></rect></svg>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden lg:grid lg:grid-cols-2">
+                <!-- Informações de Contato -->
+                <div class="bg-brand px-10 py-16 text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-extrabold font-serif mb-6 text-white">Vamos conversar?</h3>
+                        <p class="text-yellow-100 text-lg mb-8">
+                            Preencha o formulário para verificar a disponibilidade da sua data. Nossa equipe entrará em contato em até 24 horas.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center text-yellow-50">
+                                <i data-lucide="phone" class="w-6 h-6 mr-4 text-yellow-200"></i>
+                                <span>(11) 98674-0461</span>
+                            </div>
+                            <div class="flex items-center text-yellow-50">
+                                <i data-lucide="mail" class="w-6 h-6 mr-4 text-yellow-200"></i>
+                                <span>marahsouza@gmail.com</span>
+                            </div>
+                            <div class="flex items-center text-yellow-50">
+                                <i data-lucide="map-pin" class="w-6 h-6 mr-4 text-yellow-200"></i>
+                                <span>Rua Padre Raposo, 1324 - São Paulo</span>
+                            </div>
+                            <div class="flex items-center text-yellow-50">
+                                <i data-lucide="globe" class="w-6 h-6 mr-4 text-yellow-200"></i>
+                                <span>marahsouza.com.br</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <p class="text-sm text-yellow-100 uppercase tracking-widest mb-4">Redes Sociais</p>
+                        <div class="flex space-x-4">
+                            <a href="#" aria-label="Instagram" title="Instagram" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+                            </a>
+                            <a href="#" aria-label="Facebook" title="Facebook" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="px-10 py-16 bg-white">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 font-serif">Verificar Disponibilidade</h3>
+                    <form id="booking-form" class="space-y-6">
+                        
+                        <!-- Nome -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nome completo</label>
+                            <input type="text" name="name" id="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border">
+                        </div>
+
+                        <!-- Email & Telefone -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                                <input type="email" name="email" id="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">WhatsApp</label>
+                                <input type="tel" name="phone" id="phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border">
+                            </div>
+                        </div>
+
+                        <!-- Tipo de Evento & Data -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="event_type" class="block text-sm font-medium text-gray-700">Tipo de Evento</label>
+                                <select id="event_type" name="event_type" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border bg-white">
+                                    <option value="">Selecione...</option>
+                                    <option value="casamento">Casamento</option>
+                                    <option value="15anos">15 Anos</option>
+                                    <option value="corporativo">Corporativo</option>
+                                    <option value="aniversario">Aniversário/Bodas</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="event_date" class="block text-sm font-medium text-gray-700">Data Desejada (Opcional)</label>
+                                <div class="relative mt-1">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i data-lucide="calendar" class="h-5 w-5 text-gray-400"></i>
+                                    </div>
+                                    <input type="text" name="event_date" id="event_date" placeholder="Selecione uma data" class="block w-full pl-10 rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border bg-white cursor-pointer">
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">Datas bloqueadas já estão reservadas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Número de Convidados -->
+                        <div>
+                            <label for="guests" class="block text-sm font-medium text-gray-700">Número estimado de convidados</label>
+                            <input type="number" name="guests" id="guests" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border">
+                        </div>
+
+                        <!-- Mensagem -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Conte um pouco sobre o seu evento</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand focus:ring-brand sm:text-sm px-4 py-3 border"></textarea>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand transition-colors">
+                                Enviar Solicitação
+                            </button>
+                        </div>
+                        
+                        <!-- Mensagem de Sucesso Escondida -->
+                        <div id="success-message" class="hidden p-4 bg-green-50 text-green-800 rounded-md border border-green-200 mt-4 flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-500 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-medium">Mensagem enviada com sucesso!</h4>
+                                <p class="text-sm mt-1 text-green-700">Em breve nossa equipe entrará em contato via WhatsApp ou E-mail.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center md:justify-start mb-6 md:mb-0">
+                    <img src="assets/media/IMG-20260326-WA0043.jpg" alt="Logo Marah Souza Eventos" class="h-20 w-auto rounded bg-white p-2">
+                </div>
+                <div class="flex justify-center space-x-6 md:order-2">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2026 Marah Souza Eventos. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializar os ícones
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Simulação de datas indisponíveis (bloqueadas no calendário)
+        // No mundo real, você buscaria isso de uma API (ex: Google Calendar API ou um banco de dados simples)
+        const bookedDates = [
+            "2026-04-10", "2026-04-11", "2026-04-18",
+            "2026-05-02", "2026-05-16", "2026-05-23",
+            "2026-06-06", "2026-06-13"
+        ];
+
+        // Configurar o Date Picker (Flatpickr)
+        flatpickr("#event_date", {
+            locale: "pt", // Idioma português
+            minDate: "today", // Não permitir datas no passado
+            dateFormat: "d/m/Y",
+            disable: bookedDates, // Desabilitar as datas ocupadas
+            onChange: function(selectedDates, dateStr, instance) {
+                console.log("Data selecionada: ", dateStr);
+            }
+        });
+
+        // Navbar muda de cor ao dar scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-sm');
+                navbar.classList.replace('bg-white/90', 'bg-white');
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.classList.replace('bg-white', 'bg-white/90');
+            }
+        });
+
+        // Lidar com o envio do formulário (Simulação)
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o envio real da página
+            
+            // Aqui você conectaria com um serviço como Formspree, Netlify Forms, ou Cloudflare Workers para enviar o email de verdade.
+            
+            // Simular carregamento e mostrar mensagem de sucesso
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin mx-auto"></i>';
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                document.getElementById('success-message').classList.remove('hidden');
+                this.reset(); // Limpa o formulário
+                
+                // Esconder mensagem após 5 segundos
+                setTimeout(() => {
+                    document.getElementById('success-message').classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
